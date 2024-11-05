@@ -1,0 +1,11 @@
+module-info.class
+tecinfo/poo/model/dao/DBConnection.class
+tecinfo/poo/controller/FaceController.class
+tecinfo/poo/controller/RankingController.class
+tecinfo/poo/controller/Tela01Controller.class
+tecinfo/poo/model/Player.class
+tecinfo/poo/model/dao/PlayerDao.class
+tecinfo/poo/App.class
+tecinfo/poo/model/Dado.class
+tecinfo/poo/model/dao/Dao.class
+tecinfo/poo/controller/Tela02Controller.class

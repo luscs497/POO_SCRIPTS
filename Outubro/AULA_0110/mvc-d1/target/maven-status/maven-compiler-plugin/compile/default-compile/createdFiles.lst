@@ -1,0 +1,8 @@
+module-info.class
+tecinfo/poo/model/Product.class
+tecinfo/poo/model/dao/DBConnection.class
+tecinfo/poo/model/dao/ProductDao.class
+tecinfo/poo/App.class
+tecinfo/poo/model/dao/Dao.class
+tecinfo/poo/controller/SecondaryController.class
+tecinfo/poo/controller/PrimaryController.class

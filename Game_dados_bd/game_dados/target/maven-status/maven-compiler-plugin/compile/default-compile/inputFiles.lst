@@ -1,0 +1,11 @@
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/module-info.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/model/Player.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/model/Dado.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/model/dao/PlayerDao.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/controller/Tela01Controller.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/controller/Tela02Controller.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/model/dao/DBConnection.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/controller/RankingController.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/App.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/controller/FaceController.java
+/home/lucas/Documentos/POO/Game_dados_bd/game_dados/src/main/java/tecinfo/poo/model/dao/Dao.java
