@@ -1,6 +1,6 @@
 package tecinfo.poo.controller;
 
-
+import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,6 +17,7 @@ import tecinfo.poo.App;
 import java.io.IOException;
 import tecinfo.poo.controller.FaceController;
 import tecinfo.poo.model.Dado;
+import tecinfo.poo.model.Player;
 
 
 
@@ -73,7 +74,6 @@ public class Tela01Controller {
 
 
 
-
     @FXML
     public void initialize() {
         ObservableList<Integer> options = FXCollections.observableArrayList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
@@ -91,39 +91,35 @@ public class Tela01Controller {
     }
 
     private void switchToSecondary() throws IOException {
-        App.setRoot("face");
+        App.setRoot("tela02");
 
     }
 
     @FXML
     private void lancarDados(ActionEvent event) {
-        Integer[] apostas = new Integer[11];
-        String[] nomes = new String[11];
-        
-        apostas[0] = apostaP1.getValue();
-        apostas[1] = apostaP2.getValue();
-        apostas[2] = apostaP3.getValue();
-        apostas[3] = apostaP4.getValue();
-        apostas[4] = apostaP5.getValue();
-        apostas[5] = apostaP6.getValue();
-        apostas[6] = apostaP7.getValue();
-        apostas[7] = apostaP8.getValue();
-        apostas[8] = apostaP9.getValue();
-        apostas[9] = apostaP10.getValue();
-        apostas[10] = apostaP11.getValue();
-
-        nomes[0] = nameP1.getText();
-        nomes[1] = nameP2.getText();
-        nomes[2] = nameP3.getText();
-        nomes[3] = nameP4.getText();
-        nomes[4] = nameP5.getText();
-        nomes[5] = nameP6.getText();
-        nomes[6] = nameP7.getText();
-        nomes[7] = nameP8.getText();
-        nomes[8] = nameP9.getText();
-        nomes[9] = nameP10.getText();
-        nomes[10] = nameP11.getText();
-
+        ArrayList<Player> jogadores = new ArrayList<>();
+        Player p1 = new Player(nameP1.getText(), apostaP1.getValue());
+        jogadores.add(p1);
+        Player p2 = new Player(nameP2.getText(), apostaP2.getValue());
+        jogadores.add(p2);
+        Player p3 = new Player(nameP3.getText(), apostaP3.getValue());
+        jogadores.add(p3);
+        Player p4 = new Player(nameP4.getText(), apostaP4.getValue());
+        jogadores.add(p4);
+        Player p5 = new Player(nameP5.getText(), apostaP5.getValue());
+        jogadores.add(p5);
+        Player p6 = new Player(nameP6.getText(), apostaP6.getValue());
+        jogadores.add(p6);
+        Player p7 = new Player(nameP7.getText(), apostaP7.getValue());
+        jogadores.add(p7);
+        Player p8 = new Player(nameP8.getText(), apostaP8.getValue());
+        jogadores.add(p8);
+        Player p9 = new Player(nameP9.getText(), apostaP9.getValue());
+        jogadores.add(p9);
+        Player p10 = new Player(nameP10.getText(), apostaP10.getValue());
+        jogadores.add(p10);
+        Player p11 = new Player(nameP11.getText(), apostaP11.getValue());
+        jogadores.add(p11);
 
         String caminhoArquivo = "src/main/java/tecinfo/poo/controller/auxiliar.txt";
 
@@ -139,17 +135,11 @@ public class Tela01Controller {
         resultado = dd1 + dd2;
 
         String conteudo = resultado + ", " + dd1 + ", " + dd2;
-        boolean isThere = false;
-        int cont = 0;
-        for (Integer x : apostas) {
-            if(x != null && x == resultado){
-                isThere = true;
+        for (Player x : jogadores) {
+            if(x.getAposta() != null && x.getAposta() == resultado){
+                conteudo += ", " + x.getName();
                 break;
             }
-            cont++;
-        }
-        if(isThere){
-            conteudo += ", " + nomes[cont];
         }
 
         try {

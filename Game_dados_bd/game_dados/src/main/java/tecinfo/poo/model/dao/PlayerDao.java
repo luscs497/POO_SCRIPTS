@@ -27,7 +27,7 @@ public class PlayerDao implements Dao<Player> {
             resultSet = preparedStatement.executeQuery();
             // iterates the resultSet and stores in the object the column values from the database
             while (resultSet.next()){
-                player = new Player(resultSet.getString("name"), resultSet.getInt("wins"));
+                player = new Player(resultSet.getString("name"), resultSet.getInt("wins"), 0);
                 player.setId(resultSet.getInt("id")); // "id" is the column at postgres
             }
         } catch(Exception e) {
@@ -59,7 +59,7 @@ public class PlayerDao implements Dao<Player> {
             resultSet = preparedStatement.executeQuery();
             // iterates the resultSet and stores in the object the column values from the database
             while (resultSet.next()){
-                Player player = new Player(resultSet.getString("name"), resultSet.getInt("wins"));
+                Player player = new Player(resultSet.getString("name"), resultSet.getInt("wins"), 0);
                 player.setId(resultSet.getInt("id")); // "id" is the column at postgres
 
 

@@ -2,12 +2,18 @@ package tecinfo.poo.model;
 
 public class Player {
     public String name;
+    public int aposta;
     public int wins;
     public int id;
 
-    public Player(String name, int wins) {
+    public Player(String name, int wins, int aposta){
         this.name = name;
         this.wins = wins;
+        this.aposta = aposta;
+    }
+
+    public Player(String name, int aposta) {
+        this(name, 0, aposta);
     }
 
     public String getName() {
@@ -32,6 +38,14 @@ public class Player {
 
     public void setId(int id){
         this.id = id;
+    }
+
+    public Integer getAposta(){
+        return this.aposta;
+    }
+
+    public void setAposta(int aposta){
+        this.aposta = aposta;
     }
 
     @Override

@@ -4,52 +4,57 @@ import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.Label;
 import tecinfo.poo.App;
 import tecinfo.poo.controller.FaceController;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import javafx.scene.image.Image;
 
 
 public class Tela02Controller {
 
-    private Integer[] apostas;
+    @FXML
+    private ImageView ImageDice;
 
-    private String[] nomes;
+    @FXML
+    private Label LabelDice;
+
+    private int counter = 1;
+
+    private String content = "Lançando os dados";
+
+
 
     @FXML
     public void initialize() {
-        
+        ImageDice.setImage(new Image(getClass().getResourceAsStream("/tecinfo/poo/img/dados.gif")));
+
+        LabelDice.setText(content);
+
+        Timeline timeline = new Timeline(
+            new KeyFrame(Duration.seconds(1), e -> {
+                content = content + ".";
+                LabelDice.setText(content);
+                counter++;
+            })
+        );
+
+        timeline.setCycleCount(4);
+        timeline.play();
+
+        timeline.setOnFinished(e -> {
+            try {
+                switchToFace();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        });
     }
 
-    public void setNomes(String[] nomes){
-        this.nomes = nomes;
-    }
-
-    public void setApostas(Integer[] apostas){
-        this.apostas = apostas;
-        try {
-            switchToSecondary(getNomes(), getApostas());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }
-
-    public Integer[] getApostas(){
-        return this.apostas;
-    }
-
-    public String[] getNomes(){
-        return this.nomes;
-    }
-
-    private void switchToSecondary(String[] nomes, Integer[] apostas) throws IOException {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("face.fxml"));
-        loader.load();
-        FaceController faceController = loader.getController(); // Obtém a instância do controlador da nova tela
-
-        // Passa os dados para o novo controlador
-
-        // Muda a cena para a nova tela
+    private void switchToFace() throws IOException {
         App.setRoot("face");
-
     }
 }
